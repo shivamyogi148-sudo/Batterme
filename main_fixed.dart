@@ -286,10 +286,11 @@ class MetricCard extends StatelessWidget {
     child: Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Text(label, style: const TextStyle(fontWeight: FontWeight.w700)),
+          const SizedBox(height: 6),
           Text(value, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w900)),
-          const SizedBox(height: 4),
-          Text(label),
         ],
       ),
     ),
@@ -405,25 +406,8 @@ class AppSettings {
 }
 
 class DataStore {
-  static void clearUserData() {
-    UserProfile.name = 'BetterMe User';
-    UserProfile.goal = 'Build healthier habits';
-    UserProfile.notifications = true;
-    UserProfile.dailyReminder = true;
-    UserProfile.biometricLock = false;
-    UserProfile.privateMode = true;
-    NotificationPlan.reminderTime = '20:00';
-    NotificationPlan.enabled = true;
-    AppSettings.haptics = true;
-    AppSettings.sound = true;
-    AppSettings.privateMode = true;
-    OnboardingState.photoDone = false;
-    OnboardingState.habitDone = false;
-    OnboardingState.consentDone = false;
-    ConsentManager.aiPhotoConsent = false;
-    ConsentManager.analyticsConsent = false;
-    ConsentManager.consentUpdatedAt = null;
-  }
+  // Prototype has no persistent storage yet.
+  static void clearUserData() {}
 }
 
 class DataManagementScreen extends StatefulWidget {
